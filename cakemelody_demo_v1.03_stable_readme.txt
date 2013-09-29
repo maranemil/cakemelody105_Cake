@@ -1,0 +1,109 @@
+Cake Melody Version 1.03
+
+A Social Portal or Social Community Demo developed in Cakephp giving You possibility to save your favorite music songs from Youtube by categories.
+
+- Cakephp core version used is 1.2x.
+- The purpose of this application is teaching and understand how Cakephp it works.
+- I start to develop this cakephp app because I wanted to keep all my fav. songs in my website. 
+- Is still under development. 
+
+Demo applications using this script or platform with modifications are:
+
+- Bookmarking App Website (bookmarks Controller) http://imagine-things.com
+- Video & youtube App Website (videos Controller) http://eopp.de
+- Classifieds App Website http://publion.ro
+
+Download from: http://code.google.com/p/marancakemelody/
+
+Admin: demo@yahoo.com
+Password: demo
+
+----------------------------------------------------------------------------
+
+Changes by version:
+
+1.03
+
+- User Password Recover by Email
+- Admin Manage videos (CRUD)
+- Show related videos in View page
+- Show Recomended videos by Admin
+
+1.02
+
+- User Register
+- User Login
+- User Modify or Editing Profile
+- User Add picture on Profile
+- Video 5 stars rating
+- Add Video Song by Category
+- Show Last videos
+- Show Most Viewed
+- Videos By Category
+- Tag Cloud
+- Statistics
+
+----------------------------------------------------------------------------
+
+Future (To Be Done):
+
+- Forum
+- Comments
+- Favorit PlayLists
+- Favorite Friends
+- Add Video response
+- Admin Manage channels (CRUD)
+- Blog
+
+
+Resources and inspiration from:
+
+http://cakeforge.org/projects/mio-blog/
+http://cakeforge.org/projects/classifieds/
+http://cakeforge.org/projects/timesheet/
+http://cakeforge.org/projects/eventportal/
+
+I add all these packages in resources folder.
+
+----------------------------------------------------------------------------
+
+Things to be configured in app version 1.03:
+
+In users_controller.php from /app/controllers/ on recovery email function line 340:
+
+	$to			= $this->data["User"]["username"];
+	$nameto		= "Portal User";
+	$from		= "info@youremailhere.com";
+	$namefrom	= "Your Website Name";
+	$subject	= "Recovering Password Service"; 
+
+In email.php component from /app/controllers/components/ line 14 :
+
+	var $smtpServer = "localhost";
+	var $port = "25";
+	var $timeout = "30";
+	var $username = "youruser";
+	var $password = "yourpassword";
+	var $localhost = "localhost";
+	var $newLine = "\r\n";
+
+In database.php from /app/config/ line 14 :
+
+	var $default = array(
+		'driver' => 'mysql',
+		'persistent' => false,
+		'host' => "localhost",
+		'login' => "root",
+		'password' => "",
+		'database' => "cakemelody",
+		'prefix' => '',
+	);
+
+In header.ctp from /view/elements/ line 8 :
+
+	$title_for_layout = $Video[0]['videos']['bandname']." ".$Video[0]['videos']['songtitle'];
+	if(!$title_for_layout){
+		$title_for_layout=" Keep your favourite links in your list ";
+	}
+	$title_for_layout.=" Eopp cakeMelody Social Bookmark 2.0 Cakephp ";
+	echo $title_for_layout; 

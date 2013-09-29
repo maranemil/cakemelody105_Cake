@@ -1,0 +1,119 @@
+﻿msgid	"This field cannot be left blank"
+msgstr 	"Questo campo non può essere lasciato vuoto"
+
+msgid	"Your post has been updated."
+msgstr	"Il tuo post è stato aggiornato."
+
+msgid	"The post has been deleted."
+msgstr	"Il post è stato cancellato."
+
+msgid	"Your category has been saved."
+msgstr	"La tua categoria è stata salvata."
+
+msgid	"Your post has been saved."
+msgstr	"Il tuo post è stato salvato."
+
+msgid	"Your comment has been saved."
+msgstr	"Il tuo commento è stato salvato."
+
+msgid	"Your comment has been updated."
+msgstr	"Il tuo commento è stato aggiornato."
+
+msgid	"Are you sure?"
+msgstr	"Sei sicuro?"
+
+msgid	"Title"
+msgstr	"Titolo"
+
+msgid	"Category"
+msgstr	"Categoria"
+
+msgid	"Categories"
+msgstr	"Categorie"
+
+msgid	"Views"
+msgstr	"Visite"
+
+msgid	"Comments"
+msgstr	"Commenti"
+
+msgid	"No Comments"
+msgstr	"Nessuno Commento"
+
+msgid	"Action"
+msgstr	"Azione"
+
+msgid	"Actions"
+msgstr	"Azioni"
+
+msgid	"Add Post"
+msgstr	"Aggiungi Post"
+
+msgid	"Edit Post"
+msgstr	"Modifica Post"
+
+msgid	"Edit Comment"
+msgstr	"Modifica Commento"
+
+msgid	"Edit"
+msgstr	"Modifica"
+
+msgid	"Delete"
+msgstr	"Cancella"
+
+msgid	"Created"
+msgstr	"Creato"
+
+msgid	"Status"
+msgstr	"Stato"
+
+msgid	"Body"
+msgstr	"Corpo"
+
+msgid	"Name"
+msgstr	"Nome"
+
+msgid	"Save Post"
+msgstr	"Salva Post"
+
+msgid	"Send Comment"
+msgstr	"Invia Commento"
+
+msgid	"Save Comment"
+msgstr	"Salva Commento"
+
+msgid	"Blog posts"
+msgstr	"Blog Posts"
+
+msgid	"Filled under %s"
+msgstr	"Trovato sotto %s"
+
+msgid	"Posted on %s"
+msgstr	"Postato il %s"
+
+msgid	"Comments (%d)"
+msgstr	"Commenti (%d)"
+
+msgid	"View Post: %s"
+msgstr	"Guarda Post: %s"
+
+msgid	"Latest Posts"
+msgstr	"Ultimi Posts"
+
+msgid	"Latest Comments"
+msgstr	"Ultimi Commenti"
+
+msgid	"Search"
+msgstr	"Cerca"
+
+msgid	"Edit Post: %s"
+msgstr	"Modifica Post: %s"
+
+msgid	"Leave a Comment"
+msgstr	"Lascia un Commento"
+
+msgid	"If you would like to make a comment, please fill out the form below."
+msgstr	"Se vuoi lasciare un commento, per favore compila i campi del form sottostante."
+
+msgid	"%d Comments so far"
+msgstr	"%d Commenti finora"
