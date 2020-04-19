@@ -544,7 +544,7 @@ class VideosController extends AppController
     {
 
         if (!is_numeric($limit)) $this->redirect('/');
-        if (isset($this->params['requested']) AND $this->params['requested']) {
+        if (isset($this->params['requested']) and $this->params['requested']) {
             return $this->Video->find('all', array('order' => 'Video.id DESC', 'limit' => $limit, 'conditions' => array("Video.recom = '1'")));
         } else {
             return FALSE;
@@ -608,7 +608,7 @@ class VideosController extends AppController
     {
 
         if (!is_numeric($limit)) $this->redirect('/');
-        if (isset($this->params['requested']) AND $this->params['requested']) {
+        if (isset($this->params['requested']) and $this->params['requested']) {
             //return 	$this->Company->find('all', array('order' => 'Company.id DESC', 'limit' => $limit));
             return $this->Video->query("SELECT tags FROM `videos` WHERE tags != '' GROUP BY tags LIMIT " . $limit . " ");
         } else {
@@ -665,7 +665,7 @@ class VideosController extends AppController
     {
 
         //if(!is_numeric($limit)) $this->redirect('/');
-        if (isset($this->params['requested']) AND $this->params['requested']) {
+        if (isset($this->params['requested']) and $this->params['requested']) {
             //return 	$this->Company->find('all', array('order' => 'Company.id DESC', 'limit' => $limit));
             return $this->Category->query("SELECT * FROM categories ORDER BY categories.name ASC");
         } else {
@@ -707,7 +707,7 @@ class VideosController extends AppController
         }
 
         //if(!is_numeric($limit)) $this->redirect('/');
-        if (isset($this->params['requested']) AND $this->params['requested']) {
+        if (isset($this->params['requested']) and $this->params['requested']) {
             //return 	$this->Company->find('all', array('order' => 'Company.id DESC', 'limit' => $limit));
             return $this->Video->query("SELECT * FROM `videos` WHERE bandname !='' " . $sSQLB . "  OR songtitle LIKE '%remix%' ORDER BY RAND() LIMIT 8 ");
         } else {
@@ -722,7 +722,7 @@ class VideosController extends AppController
 
     function removedbyyoutube($id = NULL)
     {
-        if (isset($this->params['requested']) AND $this->params['requested']) {
+        if (isset($this->params['requested']) and $this->params['requested']) {
             return $this->Video->query("UPDATE `videos` SET hasimg = 0,removed = 1 WHERE id='" . $id . "' ");
         } else {
             return FALSE;
@@ -738,7 +738,7 @@ class VideosController extends AppController
     {
 
         if (!is_numeric($limit)) $this->redirect('/');
-        if (isset($this->params['requested']) AND $this->params['requested']) {
+        if (isset($this->params['requested']) and $this->params['requested']) {
             return $this->Video->find('all', array('order' => 'Video.views DESC', 'limit' => $limit, 'conditions' => array("Video.removed = '0'")));
         } else {
             return FALSE;
@@ -859,4 +859,4 @@ class VideosController extends AppController
 
 } // end class
 
-?>
+

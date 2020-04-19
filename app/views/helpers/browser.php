@@ -16,12 +16,12 @@ class BrowserHelper extends AppHelper
      * @var $array
      */
     var $browsers = array(
-		'ie6'		=> 'MSIE 6.0',
-		'ie7'		=> 'MSIE 7.0',
-		'Firefox'	=> 'Firefox',
-		'Opera'		=> 'Opera',
-		'Safari'	=> 'Safari'
-	);
+        'ie6' => 'MSIE 6.0',
+        'ie7' => 'MSIE 7.0',
+        'Firefox' => 'Firefox',
+        'Opera' => 'Opera',
+        'Safari' => 'Safari'
+    );
 
     /**
      * Restituisce il nome del browser utilizzato.
@@ -29,26 +29,23 @@ class BrowserHelper extends AppHelper
      * @return string
      */
     function identify()
-	{
-        foreach ( $this->browsers AS $key => $name )
-		{
-            if ( $this->check($name) )
-			{
+    {
+        foreach ($this->browsers as $key => $name) {
+            if ($this->check($name)) {
                 return $name;
             }
         }
     }
 
     /**
-     * Verifica se il browser indicato è quello utilizzato dall'utente.
+     * Verifica se il browser indicato ï¿½ quello utilizzato dall'utente.
      *
      * @param string $name Nome del browser.
      * @return boolean
      */
     function check($name)
-	{
+    {
         return @ereg($this->browsers[$name], env('HTTP_USER_AGENT'));
     }
 }
 
-?>

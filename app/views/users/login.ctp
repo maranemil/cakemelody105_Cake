@@ -8,7 +8,6 @@
     <form method="post" action="<?php echo $html->url('/users/login') ?>">
         Username<br/>
         <input type="text" name=data[User][username] size='15' class='input_medium'/><br/><br/>
-
         Passwort<br/>
         <input type="password" name="data[User][password]" size='15' class='input_medium'/><br/>
         <?php echo $form->submit('Anmelden'); ?>

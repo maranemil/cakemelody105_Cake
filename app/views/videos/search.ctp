@@ -2,20 +2,14 @@
 // Creo il navigatore.
 $html->addCrumb(__("Home", TRUE), "/");
 ?>
-
 <?php echo $this->renderElement("video_ajax"); ?>
-
-<?php 
-
-if($arTmpVid){
-	foreach ($arTmpVid as $sVid): 
-		echo $this->renderElement("video", $sVid);
-	endforeach;
-	echo $this->renderElement('pagination', $paging);
+<?php
+if ($arTmpVid) {
+    foreach ($arTmpVid as $sVid):
+        echo $this->renderElement("video", $sVid);
+    endforeach;
+    echo $this->renderElement('pagination', $paging);
+} else {
+    echo "<h3>No results found...</h3>";
 }
-else{
-	echo "<h3>No results found...</h3>";
-}
-
-
- ?>
+?>

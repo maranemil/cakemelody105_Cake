@@ -1,62 +1,66 @@
 <?php
-    /**
-     * Error string short short error message.
-     */
-    define ('SHORT_ERROR_MESSAGE', '<div class="error_message" id="error%s"%s>%s</div>');
+/**
+ * Error string short short error message.
+ */
+define('SHORT_ERROR_MESSAGE', '<div class="error_message" id="error%s"%s>%s</div>');
 
-    class ValidatorHelper extends Helper {
-        //var $validationErrors = array();
-        var $helpers = array('Html');
+class ValidatorHelper extends Helper
+{
+    //var $validationErrors = array();
+    var $helpers = array('Html');
 
-        function setValidationErrors($validationErrors)
-        {
-          if (count($validationErrors)) {
+    function setValidationErrors($validationErrors)
+    {
+        if (count($validationErrors)) {
             $this->validationErrors = $validationErrors;
-          }
         }
-        function tagErrorMsg($field) {
-          //$this->$validationErrors;
-          //print_r($this->view->controller->User->__viewClass->validationErrors);
-          //print('errors: '); print_r($this->validationErrors); exit;
-          $messages = "";
-          list($model, $column) = explode('/', $field);
-            if(isset($this->validationErrors[$model][$column])) {
-              return sprintf(SHORT_ERROR_MESSAGE, $model.Inflector::camelize($column), '',  $this->validationErrors[$model][$column]);
-            } else {
-              $style = 'style="display: none;"';
-              return sprintf(SHORT_ERROR_MESSAGE, $model.Inflector::camelize($column), $style, '');
-            }
-        }
+    }
 
-        function javascriptErrors($modelNames, $javascript=true, $ajax=false) {
-          if(!is_array($modelNames)) {
+    function tagErrorMsg($field)
+    {
+        //$this->$validationErrors;
+        //print_r($this->view->controller->User->__viewClass->validationErrors);
+        //print('errors: '); print_r($this->validationErrors); exit;
+        $messages = "";
+        list($model, $column) = explode('/', $field);
+        if (isset($this->validationErrors[$model][$column])) {
+            return sprintf(SHORT_ERROR_MESSAGE, $model . Inflector::camelize($column), '', $this->validationErrors[$model][$column]);
+        } else {
+            $style = 'style="display: none;"';
+            return sprintf(SHORT_ERROR_MESSAGE, $model . Inflector::camelize($column), $style, '');
+        }
+    }
+
+    function javascriptErrors($modelNames, $javascript = true, $ajax = false)
+    {
+        if (!is_array($modelNames)) {
             $modelNames = array($modelNames);
-          }
+        }
 
-          $scriptTags = "function validate(f) {
+        $scriptTags = "function validate(f) {
                            $('.error_message').hide();
                         ";
-          if ($javascript) {
-          $scriptTags .= "var validationJSON = {\n";
-          foreach($modelNames as $modelName) {
-            $model = ClassRegistry::getObject($modelName);
+        if ($javascript) {
+            $scriptTags .= "var validationJSON = {\n";
+            foreach ($modelNames as $modelName) {
+                $model = ClassRegistry::getObject($modelName);
 
-            foreach ($model->validate as $field_name => $validators) {
-              $scriptTags .= $model->name.Inflector::camelize($field_name).": [\n";
-              $objectBlock = '';
-              foreach($validators as $validator) {
-                if (array_key_exists('function', $validator)) {
-                  continue;
+                foreach ($model->validate as $field_name => $validators) {
+                    $scriptTags .= $model->name . Inflector::camelize($field_name) . ": [\n";
+                    $objectBlock = '';
+                    foreach ($validators as $validator) {
+                        if (array_key_exists('function', $validator)) {
+                            continue;
+                        }
+                        $objectBlock .= "{'regex': '" . substr($validator['expression'], 1, -1) . "', 'mesg': '{$validator['message']}'},\n";
+                    }
+                    $objectBlock = substr($objectBlock, 0, -2);
+                    $scriptTags .= $objectBlock . "\n],\n";
                 }
-                $objectBlock .= "{'regex': '".substr($validator['expression'], 1, -1)."', 'mesg': '{$validator['message']}'},\n";
-              }
-              $objectBlock = substr($objectBlock, 0, -2);
-              $scriptTags .= $objectBlock . "\n],\n";
             }
-          }
-          $scriptTags = substr($scriptTags, 0, -2)."};\n";
+            $scriptTags = substr($scriptTags, 0, -2) . "};\n";
 
-          $scriptTags .= <<<EOT
+            $scriptTags .= <<<EOT
               var formEle = f.elements;
               for (ele in formEle) {
                 if (!formEle[ele].name || formEle[ele].id == undefined) {
@@ -80,8 +84,8 @@
                 }
               }
 EOT;
-          }
-          if ($ajax) {
+        }
+        if ($ajax) {
             //submit form using ajax
             $formValidator = $this->Html->url("validator");
             $scriptTags .= "\nvar data = $('#'+f.id).formSerialize();
@@ -94,11 +98,11 @@ EOT;
                             //console.log(responseText);
                             return processData(responseText);
                             ";
-          }
+        }
 
-          //Remaining javascript
-          $scriptTags .= "}\n";
-          $scriptTags .= "
+        //Remaining javascript
+        $scriptTags .= "}\n";
+        $scriptTags .= "
                           function processData(data)
                           {
                             $('.error_message').hide();
@@ -122,7 +126,8 @@ EOT;
                             $('#'+block_id).focus();
                           }
                           ";
-          return $scriptTags;
-        }
+        return $scriptTags;
     }
-?>
+}
+
+

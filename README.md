@@ -1,4 +1,4 @@
 cakemelody105_Cake
 ==================
 
-cakephp based bookmarks script for youtube videos 
+### cakephp 1.2.12 based script for youtube videos 

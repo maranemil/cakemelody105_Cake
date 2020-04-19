@@ -116,7 +116,7 @@ class UsersController extends AppController
         $this->pageTitle = 'Registrierung';
 
         // If the form is submitted and the two passwords match, the data will be processed
-        if (!empty($this->data) AND $this->data['User']['password'] == $this->data['User']['password_confirm']) {
+        if (!empty($this->data) and $this->data['User']['password'] == $this->data['User']['password_confirm']) {
 
             // Processing of the data
             $form_data = array(
@@ -135,7 +135,7 @@ class UsersController extends AppController
                 // Displays a Message on success
                 $this->flash('' . $lbls["registred_ok"] . '' . $this->data['User']['username'] . '' . $lbls["registred_ok_sec"] . '', '/users/login');
             }
-        } elseif (!empty($this->data) AND $this->data['User']['password'] != $this->data['User']['password_confirm']) {
+        } elseif (!empty($this->data) and $this->data['User']['password'] != $this->data['User']['password_confirm']) {
             // Otherwise the error variable is set to "true"
             $this->set('error', 'true');
             $this->flash('Register process fail...', '/users/login');
@@ -393,7 +393,7 @@ class UsersController extends AppController
     {
 
         if (!is_numeric($id)) $this->redirect('/');
-        if (isset($this->params['requested']) AND $this->params['requested']) {
+        if (isset($this->params['requested']) and $this->params['requested']) {
             $arUsr = $this->User->query("SELECT nickname,name FROM users where id=" . $id . " LIMIT 1");
             if ($arUsr[0]["users"]['nickname']) {
                 $nickname = $arUsr[0]["users"]['nickname'];
@@ -420,7 +420,7 @@ class UsersController extends AppController
 
         //$order = ' ORDER by User.id DESC ';
         $order = ' ORDER BY Rand() ';
-        if (isset($this->params['requested']) AND $this->params['requested']) {
+        if (isset($this->params['requested']) and $this->params['requested']) {
             //return 	$this->Company->find('all', array('order' => 'Company.id DESC', 'limit' => $limit));
             return $this->User->findAll($criteria, "", $order, $limit, $page);
         } else {
@@ -670,4 +670,3 @@ class UsersController extends AppController
 
 
 } // end class
-?>

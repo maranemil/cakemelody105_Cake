@@ -9,45 +9,46 @@
  *
  * CakePHP(tm) :  Rapid Development Framework <http://www.cakephp.org/>
  * Copyright 2005-2008, Cake Software Foundation, Inc.
- *								1785 E. Sahara Avenue, Suite 490-204
- *								Las Vegas, Nevada 89104
+ *                                1785 E. Sahara Avenue, Suite 490-204
+ *                                Las Vegas, Nevada 89104
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
  * @filesource
- * @copyright		Copyright 2005-2008, Cake Software Foundation, Inc.
- * @link				http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
- * @package			cake
- * @subpackage		cake.app.config
- * @since			CakePHP(tm) v 0.2.9
- * @version			$Revision: 7118 $
- * @modifiedby		$LastChangedBy: gwoo $
- * @lastmodified	$Date: 2008-06-04 13:49:29 -0700 (Wed, 04 Jun 2008) $
- * @license			http://www.opensource.org/licenses/mit-license.php The MIT License
+ * @copyright        Copyright 2005-2008, Cake Software Foundation, Inc.
+ * @link                http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @package            cake
+ * @subpackage        cake.app.config
+ * @since            CakePHP(tm) v 0.2.9
+ * @version            $Revision: 7118 $
+ * @modifiedby        $LastChangedBy: gwoo $
+ * @lastmodified    $Date: 2008-06-04 13:49:29 -0700 (Wed, 04 Jun 2008) $
+ * @license            http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
  * In this file you set up your database connection details.
  *
- * @package		cake
- * @subpackage	cake.config
+ * @package        cake
+ * @subpackage    cake.config
  */
+
 /**
  * Database configuration class.
  * You can specify multiple configurations for production, development and testing.
  *
  * driver => The name of a supported driver; valid options are as follows:
- *		mysql 		- MySQL 4 & 5,
- *		mysqli 		- MySQL 4 & 5 Improved Interface (PHP5 only),
- *		sqlite		- SQLite (PHP5 only),
- *		postgres	- PostgreSQL 7 and higher,
- *		mssql		- Microsoft SQL Server 2000 and higher,
- *		db2			- IBM DB2, Cloudscape, and Apache Derby (http://php.net/ibm-db2)
- *		oracle		- Oracle 8 and higher
- *		firebird	- Firebird/Interbase
- *		sybase		- Sybase ASE
- *		adodb-[drivername]	- ADOdb interface wrapper (see below),
- *		pear-[drivername]	- PEAR::DB wrapper
+ *        mysql        - MySQL 4 & 5,
+ *        mysqli        - MySQL 4 & 5 Improved Interface (PHP5 only),
+ *        sqlite        - SQLite (PHP5 only),
+ *        postgres    - PostgreSQL 7 and higher,
+ *        mssql        - Microsoft SQL Server 2000 and higher,
+ *        db2            - IBM DB2, Cloudscape, and Apache Derby (http://php.net/ibm-db2)
+ *        oracle        - Oracle 8 and higher
+ *        firebird    - Firebird/Interbase
+ *        sybase        - Sybase ASE
+ *        adodb-[drivername]    - ADOdb interface wrapper (see below),
+ *        pear-[drivername]    - PEAR::DB wrapper
  *
  * You can add custom database drivers (or override existing drivers) by adding the
  * appropriate file to app/models/datasources/dbo.  Drivers should be named 'dbo_x.php',
@@ -58,8 +59,8 @@
  *
  * connect =>
  * ADOdb set the connect to one of these
- *	(http://phplens.com/adodb/supported.databases.html) and
- *	append it '|p' for persistent connection. (mssql|p for example, or just mssql for not persistent)
+ *    (http://phplens.com/adodb/supported.databases.html) and
+ *    append it '|p' for persistent connection. (mssql|p for example, or just mssql for not persistent)
  * For all other databases, this setting is deprecated.
  *
  * host =>
@@ -78,20 +79,19 @@
  * database.  Defaults to 'UTF-8' for DB2.  Uses database default for all others.
  *
  */
+class DATABASE_CONFIG
+{
 
+    var $default = array(
+        'driver' => 'mysql',
+        'persistent' => false,
+        'host' => "localhost",
+        'login' => "root",
+        'password' => "",
+        'database' => "cakemelody_cake_v12",
+        'prefix' => '',
+    );
 
-class DATABASE_CONFIG {
-	    
-		var $default = array(
-			'driver' => 'mysql',
-			'persistent' => false,
-			'host' => "localhost",
-			'login' => "root",
-			'password' => "",
-			'database' => "cakemelody_cake_v12",
-			'prefix' => '',
-		);
-         
 
 }
-?>
+
