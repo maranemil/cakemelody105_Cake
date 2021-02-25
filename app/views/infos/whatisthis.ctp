@@ -67,5 +67,4 @@
     <a href="http://cakeforge.org/projects/timesheet/" target="_blank">http://cakeforge.org/projects/timesheet/</a><br/>
     <a href="http://cakeforge.org/projects/eventportal/"
        target="_blank">http://cakeforge.org/projects/eventportal/</a><br/>
-    </span>
 </div>

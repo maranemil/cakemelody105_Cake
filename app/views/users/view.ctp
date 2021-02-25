@@ -1,10 +1,10 @@
 <?php
 // Creo il navigatore.
-$html->addCrumb(__("Home", TRUE), "/");
+$html->addCrumb(__("Home", true), "/");
 ?>
 <div style="">
     <div style="float: left; margin: 0 10px 10px 0">
-        <img src="<?= $this->webroot ?>img/user/<?= $user['User']['image'] ?>" border=1 width="100">
+        <img src="<?= $this->webroot ?>img/user/<?= $user['User']['image'] ?>" width="100" alt="">
     </div>
     <div style="float: left; margin: 0 10px 10px 0">
         <h1>Profil von <?php echo $user['User']['name'] . " " . $user['User']['pastname']; ?></h1>
@@ -21,7 +21,7 @@ $html->addCrumb(__("Home", TRUE), "/");
                 <td>Videos By:</td>
                 <td>
                     <a href="<?= $this->webroot ?>videos/uservideos/<?php echo $user['User']['id']; ?>">
-                        <?php echo $user['User']['name'] . " " . $user['User']['pastname']; ?>
+					   <?php echo $user['User']['name'] . " " . $user['User']['pastname']; ?>
                     </a>
                 </td>
             </tr>

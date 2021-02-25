@@ -15,28 +15,27 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 
-class User extends AppModel
-{
+class User extends AppModel {
 
-    var $name = 'User';
+   var $name = 'User';
 
-    var $validate = array(
-        'username' => VALID_NOT_EMPTY,
-        'password' => VALID_NOT_EMPTY,
-        'e-mail' => VALID_EMAIL,
-        'id' => VALID_NUMBER
+   var $validate = array(
+	   'username' => VALID_NOT_EMPTY,
+	   'password' => VALID_NOT_EMPTY,
+	   'e-mail'   => VALID_EMAIL,
+	   'id'       => VALID_NUMBER
 
-    );
+   );
 
-    var $hasOne = array('Videos' =>
-        array('className' => 'Video',
-            'foreignKey' => 'user_id',
-            'conditions' => '',
-            'fields' => '',
-            'order' => '',
-            'dependent' => ''
-        )
-    );
+   var $hasOne = array('Videos' =>
+						   array('className'  => 'Video',
+								 'foreignKey' => 'user_id',
+								 'conditions' => '',
+								 'fields'     => '',
+								 'order'      => '',
+								 'dependent'  => ''
+						   )
+   );
 
 }
 

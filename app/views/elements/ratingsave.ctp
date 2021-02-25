@@ -1,5 +1,5 @@
 <?php
 // Creo il navigatore.
-$html->addCrumb(__("Home", TRUE), "/");
-?>
+$html->addCrumb(__("Home", true), "/");
+
 

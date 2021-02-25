@@ -1,9 +1,9 @@
 <?php
 // Creo il navigatore.
-$html->addCrumb(__("Home", TRUE), "/");
+$html->addCrumb(__("Home", true), "/");
 ?>
 <?php echo $this->renderElement("video_ajax"); ?>
 <?php foreach ($arTmpVid as $sVid): ?>
-    <?php echo $this->renderElement("video", $sVid); ?>
+   <?php echo $this->renderElement("video", $sVid); ?>
 <?php endforeach; ?>
 <?php echo $this->renderElement('pagination', $paging); ?>
