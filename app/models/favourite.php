@@ -1,4 +1,6 @@
-<?php
+<?php /** @noinspection PhpMultipleClassDeclarationsInspection */
+/** @noinspection AutoloadingIssuesInspection */
+/** @noinspection PhpUnused */
 
 /**
  * Modello delle Categorie.
@@ -9,32 +11,33 @@
  * @license        http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 
-class Favourite extends AppModel {
-   /**
-	* Nome del modello.
-	* @var string
-	*/
-   var $name = 'Favourite';
+class Favourite extends AppModel
+{
+    /**
+     * Nome del modello.
+     * @var string
+     */
+    public $name = 'Favourite';
 
-   /**
-	* Relazione uno a molti.
-	* @var mixed
-	*/
-   var $belongsTo = 'Videos';
+    /**
+     * Relazione uno a molti.
+     * @var mixed
+     */
+    public $belongsTo = 'Videos';
 
-   /**
-	* Validazione dei campi.
-	* @var array
-	*/
+    /**
+     * Validazione dei campi.
+     * @var array
+     */
 
-   /*
-	   var $validate = array(
-		   'title' => array(
-			   'rule'		=> array('minLength', 1),
-			   'required'	=> TRUE
-		   )
-	   );
-   */
+    /*
+        var $validate = array(
+            'title' => array(
+                'rule'		=> array('minLength', 1),
+                'required'	=> TRUE
+            )
+        );
+    */
 
 }
 

@@ -1,4 +1,7 @@
-<?php
+<?php /** @noinspection PropertyInitializationFlawsInspection */
+/** @noinspection PhpMultipleClassDeclarationsInspection */
+/** @noinspection AutoloadingIssuesInspection */
+/** @noinspection PhpUnused */
 /* infos_controller.php, Provides Functions for Static Pages
     Copyright (C) 2007  Christoph Hochstrasser
 
@@ -24,43 +27,48 @@
  * @copyright      Copyright 2009, Maran Project.
  * @version        1.0
  */
-class InfosController extends AppController {
+class InfosController extends AppController
+{
 
-   var $name      = 'Infos';
-   var $pageTitle = "Infos";
-   var $layout    = 'default';
-   var $uses      = array("Info");
-   var $helpers   = array('Html', 'Javascript', 'Session', 'Head', 'Javascript', 'Ajax', 'Form', 'Pagination', 'Chart');
+    public $name      = 'Infos';
+    public $pageTitle = "Infos";
+    public $layout    = 'default';
+    public $uses      = array("Info");
+    public $helpers   = array('Html', 'Javascript', 'Session', 'Head', 'Javascript', 'Ajax', 'Form', 'Pagination', 'Chart');
 
-   /*----------------------------------------------------------
-   / index
-   / @author: Maran Emil
-   ----------------------------------------------------------*/
+    /*----------------------------------------------------------
+    / index
+    / @author: Maran Emil
+    ----------------------------------------------------------*/
 
-   function index() {
-   }
+    public function index()
+    {
+    }
 
-   /*----------------------------------------------------------
-   / contact us
-   / @author: Maran Emil
-   ----------------------------------------------------------*/
+    /*----------------------------------------------------------
+    / contact us
+    / @author: Maran Emil
+    ----------------------------------------------------------*/
 
-   function contactus() {
-	  $this->pageTitle = ' - Contact Us';
-   }
+    public function contactus()
+    {
+        $this->pageTitle = ' - Contact Us';
+    }
 
-   /*----------------------------------------------------------
-   / what is this
-   / @author: Maran Emil
-   ----------------------------------------------------------*/
+    /*----------------------------------------------------------
+    / what is this
+    / @author: Maran Emil
+    ----------------------------------------------------------*/
 
-   function whatisthis() {
-	  $this->pageTitle = ' - WTF is this?';
-   }
+    public function whatisthis()
+    {
+        $this->pageTitle = ' - WTF is this?';
+    }
 
-   function cakephpapps() {
-	  $this->pageTitle = ' - Resources';
-   }
+    public function cakephpapps()
+    {
+        $this->pageTitle = ' - Resources';
+    }
 
 }
 

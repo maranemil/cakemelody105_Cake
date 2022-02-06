@@ -10,9 +10,10 @@
  * @version        1.0
  */
 
-class Info extends AppModel {
-   var $name     = 'Info';
-   var $useTable = false;
+class Info extends AppModel
+{
+    public $name     = 'Info';
+    public $useTable = false;
 }
 
 

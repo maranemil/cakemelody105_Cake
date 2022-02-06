@@ -1,4 +1,6 @@
-<?php
+<?php /** @noinspection PhpMultipleClassDeclarationsInspection */
+/** @noinspection AutoloadingIssuesInspection */
+/** @noinspection PhpUnused */
 
 /**
  * Controller Ratings
@@ -9,21 +11,23 @@
  * @version        1.0
  */
 
-class RatingsController extends AppController {
-   /**
-	* No....
-	* @var string
-	*/
+class RatingsController extends AppController
+{
+    /**
+     * No....
+     * @var string
+     */
 
-   var $name = "Ratings";
+    public $name = "Ratings";
 
-   /*----------------------------------------------------------
-   / Index
-   / @author: Maran Emil
-   ----------------------------------------------------------*/
+    /*----------------------------------------------------------
+    / Index
+    / @author: Maran Emil
+    ----------------------------------------------------------*/
 
-   function index() {
-   }
+    public function index()
+    {
+    }
 
 }
 

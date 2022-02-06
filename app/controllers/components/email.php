@@ -1,4 +1,8 @@
-<?php
+<?php /** @noinspection PhpArrayUsedOnlyForWriteInspection */
+/** @noinspection AccessModifierPresentedInspection */
+/** @noinspection PhpUnused */
+/** @noinspection PhpMultipleClassDeclarationsInspection */
+/** @noinspection AutoloadingIssuesInspection */
 
 /**
  * Pagination Component, responsible for managing the DATA required for pagination.
@@ -7,112 +11,120 @@
 /**
  * Class EmailComponent
  */
-class EmailComponent extends Object {
+class EmailComponent extends Object
+{
 
-   var $smtpServer = "localhost";
-   var $port       = "25";
-   var $timeout    = "30";
-   var $username   = "youruser";
-   var $password   = "yourpassword";
-   var $localhost  = "localhost";
-   var $newLine    = "\r\n";
+    var $smtpServer = "localhost";
+    var $port       = "25";
+    var $timeout    = "30";
+    var $username   = "youruser";
+    var $password   = "yourpassword";
+    var $localhost  = "localhost";
+    var $newLine    = "\r\n";
 
-   /* * * * CONFIGURATION END * * * * */
+    /* * * * CONFIGURATION END * * * * */
 
-   /**
-	* @param $from
-	* @param $namefrom
-	* @param $to
-	* @param $nameto
-	* @param $subject
-	* @param $message
-	*
-	* @return string
-	*/
-   function authSendEmail($from, $namefrom, $to, $nameto, $subject, $message) {
-	  //Connect to the host on the specified port
-	  $smtpConnect  = fsockopen($smtpServer, $port, $errno, $errstr, $timeout);
-	  $smtpResponse = fgets($smtpConnect, 515);
-	  if (empty($smtpConnect)) {
-		 $output = "Failed to connect: $smtpResponse";
-		 return $output;
-	  }
-	  else {
-		 $logArray['connection'] = "Connected: $smtpResponse";
-	  }
+    /**
+     * @param $from
+     * @param $namefrom
+     * @param $to
+     * @param $nameto
+     * @param $subject
+     * @param $message
+     * @param $smtpServer
+     * @param $port
+     * @param $timeout
+     * @return string
+     */
+    function authSendEmail($from, $namefrom, $to, $nameto, $subject, $message, $smtpServer, $port, $timeout)
+    {
+        //Connect to the host on the specified port
+        $smtpConnect  = fsockopen($smtpServer, $port, $errno, $errstr, $timeout);
+        $smtpResponse = fgets($smtpConnect, 515);
+        if (empty($smtpConnect)) {
+            return "Failed to connect: $smtpResponse";
+        }
 
-	  //Request Auth Login
-	  fputs($smtpConnect, "AUTH LOGIN" . $newLine);
-	  $smtpResponse            = fgets($smtpConnect, 515);
-	  $logArray['authrequest'] = "$smtpResponse";
+        $logArray['connection'] = "Connected: $smtpResponse";
 
-	  //Send username
-	  fputs($smtpConnect, base64_encode($username) . $newLine);
-	  $smtpResponse             = fgets($smtpConnect, 515);
-	  $logArray['authusername'] = "$smtpResponse";
+        //Request Auth Login
+        $newLine =null;
+        fwrite($smtpConnect, "AUTH LOGIN" . $newLine);
+        $smtpResponse            = fgets($smtpConnect, 515);
+        $logArray['authrequest'] = (string)$smtpResponse;
 
-	  //Send password
-	  fputs($smtpConnect, base64_encode($password) . $newLine);
-	  $smtpResponse             = fgets($smtpConnect, 515);
-	  $logArray['authpassword'] = "$smtpResponse";
+        //Send username
+        $username =null;
+        fwrite($smtpConnect, base64_encode($username) . $newLine);
+        $smtpResponse             = fgets($smtpConnect, 515);
+        $logArray['authusername'] = (string)$smtpResponse;
 
-	  //Say Hello to SMTP
-	  fputs($smtpConnect, "HELO $localhost" . $newLine);
-	  $smtpResponse             = fgets($smtpConnect, 515);
-	  $logArray['heloresponse'] = "$smtpResponse";
+        //Send password
+        $password =null;
+        fwrite($smtpConnect, base64_encode($password) . $newLine);
+        $smtpResponse             = fgets($smtpConnect, 515);
+        $logArray['authpassword'] = (string)$smtpResponse;
 
-	  //Email From
-	  fputs($smtpConnect, "MAIL FROM: $from" . $newLine);
-	  $smtpResponse                 = fgets($smtpConnect, 515);
-	  $logArray['mailfromresponse'] = "$smtpResponse";
+        //Say Hello to SMTP
+        $localhost =null;
+        fwrite($smtpConnect, "HELO $localhost" . $newLine);
+        $smtpResponse             = fgets($smtpConnect, 515);
+        $logArray['heloresponse'] = (string)$smtpResponse;
 
-	  //Email To
-	  fputs($smtpConnect, "RCPT TO: $to" . $newLine);
-	  $smtpResponse               = fgets($smtpConnect, 515);
-	  $logArray['mailtoresponse'] = "$smtpResponse";
+        //Email From
+        fwrite($smtpConnect, "MAIL FROM: $from" . $newLine);
+        $smtpResponse                 = fgets($smtpConnect, 515);
+        $logArray['mailfromresponse'] = (string)$smtpResponse;
 
-	  //The Email
-	  fputs($smtpConnect, "DATA" . $newLine);
-	  $smtpResponse              = fgets($smtpConnect, 515);
-	  $logArray['data1response'] = "$smtpResponse";
+        //Email To
+        fwrite($smtpConnect, "RCPT TO: $to" . $newLine);
+        $smtpResponse               = fgets($smtpConnect, 515);
+        $logArray['mailtoresponse'] = (string)$smtpResponse;
 
-	  //Construct Headers
-	  $headers = "MIME-Version: 1.0" . $newLine;
-	  $headers .= "Content-type: text/html; charset=iso-8859-1" . $newLine;
-	  $headers .= "To: $nameto <$to>" . $newLine;
-	  $headers .= "From: $namefrom <$from>" . $newLine;
+        //The Email
+        fwrite($smtpConnect, "DATA" . $newLine);
+        $smtpResponse              = fgets($smtpConnect, 515);
+        $logArray['data1response'] = (string)$smtpResponse;
 
-	  fputs($smtpConnect, "To: $to\nFrom: $from\nSubject: $subject\n$headers\n\n$message\n.\n");
-	  $smtpResponse              = fgets($smtpConnect, 515);
-	  $logArray['data2response'] = "$smtpResponse";
+        //Construct Headers
+        $headers = "MIME-Version: 1.0" . $newLine;
+        $headers .= "Content-type: text/html; charset=iso-8859-1" . $newLine;
+        $headers .= "To: $nameto <$to>" . $newLine;
+        $headers .= "From: $namefrom <$from>" . $newLine;
 
-	  // Say Bye to SMTP
-	  fputs($smtpConnect, "QUIT" . $newLine);
-	  $smtpResponse             = fgets($smtpConnect, 515);
-	  $logArray['quitresponse'] = "$smtpResponse";
-   }
+        fwrite($smtpConnect, "To: $to\nFrom: $from\nSubject: $subject\n$headers\n\n$message\n.\n");
+        $smtpResponse              = fgets($smtpConnect, 515);
+        $logArray['data2response'] = (string)$smtpResponse;
 
-   /**
-	* @param $from
-	* @param $to
-	* @param $subject
-	* @param $message
-	*
-	* @return bool
-	*/
-   function SendEmail($from, $to, $subject, $message) {
-	  // mail($to , $subject, $content, "From: $from \n" ."MIME-Version: 1.0\n" . "Content-type: text/html; charset=iso-8859-1");
-	  $isentemail = mail($to, $subject, $message, "From: $from \n" . "MIME-Version: 1.0\n" . "Content-type: text/html; charset=iso-8859-1");
+        // Say Bye to SMTP
+        fwrite($smtpConnect, "QUIT" . $newLine);
+        $smtpResponse             = fgets($smtpConnect, 515);
+        $logArray['quitresponse'] = (string)$smtpResponse;
 
-	  if ($isentemail) {
-		 echo 'Ja, email sent';
-		 return true;
-	  }
-	  else {
-		 echo 'Nein, email not sent';
-		 return false;
-	  }
-   }
+        return true;
+    }
+
+    /**
+     * @param $from
+     * @param $to
+     * @param $subject
+     * @param $message
+     *
+     * @return bool
+     */
+    function SendEmail($from, $to, $subject, $message)
+    {
+        // mail($to , $subject, $content, "From: $from \n" ."MIME-Version: 1.0\n" . "Content-type: text/html; charset=iso-8859-1");
+        $isentemail = mail($to, $subject, $message, "From: $from \n" . "MIME-Version: 1.0\n" . "Content-type: text/html; charset=iso-8859-1");
+
+        if ($isentemail) {
+            echo 'Ja, email sent';
+            return true;
+        }
+
+        echo 'Nein, email not sent';
+        return false;
+    }
 
 }
 

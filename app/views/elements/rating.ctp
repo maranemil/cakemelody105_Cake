@@ -1,10 +1,22 @@
-<!-- rating box -->
 <?php
-if ($rating == 1) $ratewidth = 25;
-if ($rating == 2) $ratewidth = 50;
-if ($rating == 3) $ratewidth = 75;
-if ($rating == 4) $ratewidth = 100;
-if ($rating == 5) $ratewidth = 125;
+/** @noinspection PhpUndefinedVariableInspection *//** @noinspection PhpUndefinedVariableInspection */
+?>
+<?php
+if ($rating === 1) {
+    $ratewidth = 25;
+}
+if ($rating === 2) {
+    $ratewidth = 50;
+}
+if ($rating === 3) {
+    $ratewidth = 75;
+}
+if ($rating === 4) {
+    $ratewidth = 100;
+}
+if ($rating === 5) {
+    $ratewidth = 125;
+}
 ?>
 <TABLE>
     <TR>

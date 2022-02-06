@@ -10,19 +10,20 @@
  * @version        1.0
  */
 
-class Rating extends AppModel {
+class Rating extends AppModel
+{
 
-   var $name      = 'Rating';
-   var $belongsTo = 'Videos';
+    public $name      = 'Rating';
+    public $belongsTo = 'Videos';
 
-   /*
-	   var $validate = array(
-		   'title' => array(
-			   'rule'		=> array('minLength', 1),
-			   'required'	=> TRUE
-		   )
-	   );
-   */
+    /*
+        var $validate = array(
+            'title' => array(
+                'rule'		=> array('minLength', 1),
+                'required'	=> TRUE
+            )
+        );
+    */
 
 }
 

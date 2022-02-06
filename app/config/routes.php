@@ -58,25 +58,25 @@ Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'
 */
 
 Router::connect(
-	"/cat/:id/:slug",
-	array(
-		'controller' => 'categories',
-		'action'     => 'view'
-	),
-	array(
-		'pass' => array('id'),
-	)
+    "/cat/:id/:slug",
+    array(
+        'controller' => 'categories',
+        'action'     => 'view'
+    ),
+    array(
+        'pass' => array('id'),
+    )
 );
 
 Router::connect(
-	"/post/:id/:slug",
-	array(
-		'controller' => 'posts',
-		'action'     => 'view'
-	),
-	array(
-		'pass' => array('id'),
-	)
+    "/post/:id/:slug",
+    array(
+        'controller' => 'posts',
+        'action'     => 'view'
+    ),
+    array(
+        'pass' => array('id'),
+    )
 );
 
 Router::connect("/:controller/:action/*");

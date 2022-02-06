@@ -1,4 +1,6 @@
-<?php
+<?php /** @noinspection PhpMultipleClassDeclarationsInspection */
+/** @noinspection AutoloadingIssuesInspection */
+/** @noinspection PhpUnused */
 
 /**
  * Admin Model.
@@ -9,9 +11,10 @@
  * @version        1.0
  */
 
-class Admin extends AppModel {
-   var $name     = 'Admin';
-   var $useTable = false;
+class Admin extends AppModel
+{
+    public $name     = 'Admin';
+    public $useTable = false;
 }
 
 
